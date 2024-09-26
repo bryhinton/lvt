@@ -52,7 +52,7 @@ export default function GithubUserSearch() {
     }, []);
 
     const checkForEnter = (e:any) => {
-        if(e.key == "Enter") {
+        if(e.key === "Enter") {
             search();
         }
     }
@@ -63,17 +63,17 @@ export default function GithubUserSearch() {
                 <h1>Github User Search</h1>
                 <div className="light-mode" onClick={() => setLightMode(!lightMode)}>
                     {lightMode ? 'Light' : 'Dark'}
-                    <img src="brightness.png"/>
+                    <img src="brightness.png" alt="light-mode"/>
                 </div>
                 <div className="search-bar">
-                    <img src="search-interface-symbol.png" className="search-icon"></img>
+                    <img src="search-interface-symbol.png" className="search-icon" alt="search"></img>
                     <input type="text" placeholder="Search GitHub username..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} onKeyDown={(e) => checkForEnter(e)}></input>
                     {!currentUser && <div className="error">No results</div>}
                     <button type="button" onClick={search}>Search</button>
                 </div>
                 {currentUser && <div className="user">
                     <div className="image-col">
-                        <img src={currentUser.avatar_url}></img>
+                        <img src={currentUser.avatar_url} alt="avatar"></img>
                     </div>
                     <div className="profile-col">
                         <div className="name">
@@ -104,30 +104,30 @@ export default function GithubUserSearch() {
                         </div>
                         <div className="links">
                             <div className="link">
-                                <img src="location-pin.png" className="link-icon"></img>
+                                <img src="location-pin.png" className="link-icon" alt="location"></img>
                                 {currentUser.location ? 
                                     <a className="value" target="_blank" href={"https://www.google.com/maps/search/?api=1&query=" + currentUser.location}>{currentUser.location}</a> :
                                     <span className="value empty">Not Available</span>
                                 }
                             </div>
                             <div className="link">
-                                <img src="twitter.png" className="link-icon"></img>
+                                <img src="twitter.png" className="link-icon" alt="twitter"></img>
                                 {currentUser.twitter_username ? 
                                     <a className="value twitter" target="_blank" href={"https://twitter.com/" + currentUser.twitter_username}>{currentUser.twitter_username}</a> :
                                     <span className="value twitter empty">Not Available</span>
                                 }
                             </div>
                             <div className="link">
-                                <img src="link.png" className="link-icon"></img>
+                                <img src="link.png" className="link-icon" alt="website"></img>
                                 {currentUser.blog ? 
                                     <a className="value blog" target="_blank" href={currentUser.blog}>{currentUser.blog}</a> :
                                     <span className="value blog empty">Not Available</span>
                                 }
                             </div>
                             <div className="link">
-                                <img src="business-and-trade.png" className="link-icon"></img>
+                                <img src="business-and-trade.png" className="link-icon" alt="company"></img>
                                 {currentUser.company ? 
-                                    <a className="value company" target="_blank" href={"https://github.com/" + currentUser.company.substring(1)}>{currentUser.company}</a> :
+                                    <a className="value company" target="_blank" rel="noreferrer" href={"https://github.com/" + currentUser.company.substring(1)}>{currentUser.company}</a> :
                                     <span className="value company empty">Not Available</span>
                                 }
                             </div>
