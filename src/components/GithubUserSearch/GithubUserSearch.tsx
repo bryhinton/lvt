@@ -106,21 +106,21 @@ export default function GithubUserSearch() {
                             <div className="link">
                                 <img src="location-pin.png" className="link-icon" alt="location"></img>
                                 {currentUser.location ? 
-                                    <a className="value" target="_blank" href={"https://www.google.com/maps/search/?api=1&query=" + currentUser.location}>{currentUser.location}</a> :
+                                    <a className="value" target="_blank" rel="noreferrer" href={"https://www.google.com/maps/search/?api=1&query=" + currentUser.location}>{currentUser.location}</a> :
                                     <span className="value empty">Not Available</span>
                                 }
                             </div>
                             <div className="link">
                                 <img src="twitter.png" className="link-icon" alt="twitter"></img>
                                 {currentUser.twitter_username ? 
-                                    <a className="value twitter" target="_blank" href={"https://twitter.com/" + currentUser.twitter_username}>{currentUser.twitter_username}</a> :
+                                    <a className="value twitter" target="_blank" rel="noreferrer" href={"https://twitter.com/" + currentUser.twitter_username}>{currentUser.twitter_username}</a> :
                                     <span className="value twitter empty">Not Available</span>
                                 }
                             </div>
                             <div className="link">
                                 <img src="link.png" className="link-icon" alt="website"></img>
                                 {currentUser.blog ? 
-                                    <a className="value blog" target="_blank" href={currentUser.blog}>{currentUser.blog}</a> :
+                                    <a className="value blog" target="_blank" rel="noreferrer" href={currentUser.blog}>{currentUser.blog}</a> :
                                     <span className="value blog empty">Not Available</span>
                                 }
                             </div>
