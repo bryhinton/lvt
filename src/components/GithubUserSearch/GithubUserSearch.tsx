@@ -2,20 +2,20 @@ import React from "react"
 import moment from "moment"
 import "./GithubUserSearch.scss"
 
-type GithubUser = {
+export type GithubUser = {
     login:string,
-    name:string,
-    bio:string,
-    public_repos:number,
-    followers:number,
-    following:number,
-    location:string,
-    twitter_username:string,
-    blog:string,
-    company:string,
-    created_at:string,
-    displayDate:string,
-    avatar_url:string
+    name?:string,
+    bio?:string,
+    public_repos?:number,
+    followers?:number,
+    following?:number,
+    location?:string,
+    twitter_username?:string,
+    blog?:string,
+    company?:string,
+    created_at?:string,
+    displayDate?:string,
+    avatar_url?:string
 }
 
 export default function GithubUserSearch() {
@@ -36,6 +36,7 @@ export default function GithubUserSearch() {
                 return response.json()
             } else {
                 setCurrentUser(null)
+                return null
             }
         })
         .then((json) => {
@@ -112,22 +113,22 @@ export default function GithubUserSearch() {
                             <div className="link">
                                 <img src="twitter.png" className="link-icon"></img>
                                 {currentUser.twitter_username ? 
-                                    <a className="value" target="_blank" href={"https://twitter.com/" + currentUser.twitter_username}>{currentUser.twitter_username}</a> :
-                                    <span className="value empty">Not Available</span>
+                                    <a className="value twitter" target="_blank" href={"https://twitter.com/" + currentUser.twitter_username}>{currentUser.twitter_username}</a> :
+                                    <span className="value twitter empty">Not Available</span>
                                 }
                             </div>
                             <div className="link">
                                 <img src="link.png" className="link-icon"></img>
                                 {currentUser.blog ? 
-                                    <a className="value" target="_blank" href={currentUser.blog}>{currentUser.blog}</a> :
-                                    <span className="value empty">Not Available</span>
+                                    <a className="value blog" target="_blank" href={currentUser.blog}>{currentUser.blog}</a> :
+                                    <span className="value blog empty">Not Available</span>
                                 }
                             </div>
                             <div className="link">
                                 <img src="business-and-trade.png" className="link-icon"></img>
                                 {currentUser.company ? 
-                                    <a className="value" target="_blank" href={"https://github.com/" + currentUser.company.substring(1)}>{currentUser.company}</a> :
-                                    <span className="value empty">Not Available</span>
+                                    <a className="value company" target="_blank" href={"https://github.com/" + currentUser.company.substring(1)}>{currentUser.company}</a> :
+                                    <span className="value company empty">Not Available</span>
                                 }
                             </div>
                         </div>
